@@ -1,4 +1,4 @@
-let experienciaLaboral = function (event){
+let experienciaLaboral = function (event) {
     let labor = document.getElementById("experiencia");
     if (this.checked) {
         labor.style.display = 'block';
@@ -9,16 +9,16 @@ let experienciaLaboral = function (event){
     }
 }
 let check = document.getElementById("exp1");
-check.addEventListener("change",experienciaLaboral);
+check.addEventListener("change", experienciaLaboral);
 
 let imprimirFormulario = function (event) {
     event.preventDefault();
-    if (!validarHobbie(document.getElementsByName("Hobbie"))){
+    if (!validarHobbie(document.getElementsByName("Hobbie"))) {
         alert("Seleccione al menos un hobbie");
-    }else{
+    } else {
         imprimirDatos();
     }
-    
+
 }
 
 let form = document.getElementById("formT");
@@ -27,23 +27,40 @@ form.addEventListener("submit", imprimirFormulario, true);
 function imprimirDatos() {
     document.getElementById("formT").style.display = 'none';
     document.getElementById("imprimirSect").style.display = 'block';
-    anadirNodo(document.getElementById("tipoDoc").value);
-    anadirNodo(document.getElementById("numDoc").value);
-    anadirNodo(document.getElementById("nombre").value);
-    anadirNodo(document.getElementById("apellido").value);
-    anadirNodo(document.getElementById("correo").value);
-    anadirNodo(obtenerGenero(document.getElementsByName("genero")));
-    anadirNodo(document.getElementById("profesion").value);
-    anadirNodo(document.getElementById("perfil").value);
-    anadirNodo(obtenerHobbies(document.getElementsByName("checkboxH")));
-    anadirNodo(document.getElementById("experiencia").value);
+    anadirNodo(document.getElementById("tipoDoc"));
+    anadirNodo(document.getElementById("numDoc"));
+    anadirNodo(document.getElementById("nombre"));
+    anadirNodo(document.getElementById("apellido"));
+    anadirNodo(document.getElementById("correo"));
+    anadirNodoCheck(obtenerValores(document.getElementsByName("Genero")),"Genero");
+    anadirNodo(document.getElementById("profesion"));
+    anadirNodo(document.getElementById("perfil"));
+    anadirNodoCheck(obtenerValores(document.getElementsByName("Hobbie")),"Hobbies");
+    anadirNodo(document.getElementById("experiencia"));
     return true;
 }
 
 function anadirNodo(x) {
+    if (!x.value == "") {
+        let newH = document.createElement("h6");
+        let newP = document.createElement("p");
+        let newHead = document.createTextNode(x.name);
+        let newText = document.createTextNode(x.value);
+        newH.appendChild(newHead);
+        newP.appendChild(newText);
+        document.getElementById("imprimirSect").appendChild(newH);
+        document.getElementById("imprimirSect").appendChild(newP);
+    }
+}
+
+function anadirNodoCheck(x,tag){
+    let newH = document.createElement("h6");
     let newP = document.createElement("p");
+    let newHead = document.createTextNode(tag);
     let newText = document.createTextNode(x);
+    newH.appendChild(newHead);
     newP.appendChild(newText);
+    document.getElementById("imprimirSect").appendChild(newH);
     document.getElementById("imprimirSect").appendChild(newP);
 }
 
@@ -56,3 +73,14 @@ function validarHobbie(hobbies) {
     }
     return x > 0;
 }
+
+function obtenerValores(arr) {
+    let valor = "";
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].checked == true) {
+            valor += arr[i].id + " ";
+        }
+    }
+    return valor;
+}
+
