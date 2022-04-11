@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="FuncionesFormulario.js"></script>
 </head>
 
 <body>
@@ -25,15 +26,15 @@
             <div class="row">
                 <div class="col">
                     <label for="doc">Tipo de documento</label><br>
-                    <select id="tipoDoc" name="TipoDoc" class="form-control" required>
+                    <select id="tipoDoc" name="Documento" class="form-control" required>
                         <option value="CC">Cedula de Ciudadania</option>
                         <option value="TI">Documento de identidad</option>
-                        <option value="" selected disabled hidden>--Seleccione un tipo--</option>
+                        <option value="" selected hidden>--Seleccione un tipo--</option>
                     </select>
                 </div>
                 <div class="col">
                     <label for="NumDoc">Numero de documento</label><br>
-                    <input type="number" id="numDoc" class="form-control" name="NumDoc" required><br>
+                    <input type="number" id="numDoc" class="form-control" name="Número de documento" required><br>
                 </div>
             </div>
         </div>
@@ -55,11 +56,11 @@
         <div class="container">
             <label>Genero</label><br>
             <div class="form-check">
-                <input type="radio" class="genero form-check-input" id="Masculino" name="radio1" value="M" required>
+                <input type="radio" class="genero form-check-input" id="Masculino" name="Genero" value="M" required>
                 <label class="form-check-label" for="macho">Masculino</label><br>
             </div>
             <div class="form-check">
-                <input type="radio" class="genero form-check-input" id="Femenino" name="radio1" value="F" required>
+                <input type="radio" class="genero form-check-input" id="Femenino" name="Genero" value="F" required>
                 <label class="form-check-label" for="hembra">Femenino</label><br>
             </div>
         </div>
@@ -67,25 +68,25 @@
             <label for="Profesion">Profesion</label><br>
             <input type="text" id="profesion" name="Profesion" class="form-control" required><br>
             <label for="Perfil">Perfil</label><br>
-            <textarea id="perfil" name="Perfil" rows="10" cols="50" class="form-control" required></textarea><br>
+            <textarea id="perfil" name="Perfil" rows="10" cols="50" class="form-control"></textarea><br>
         </div>
 
         <div class="container">
             <label>¿Cuales son sus Hobbies?</label>
             <div class="form-check">
-                <input type="checkbox" class="checkboxH form-check-input" id="caminar" name="Caminar"
+                <input type="checkbox" class="checkboxH form-check-input" id="Caminar" name="Hobbie"
                     class="form-control">
                 <label for="Caminar" class="form-check-label">Caminar</label><br>
-                <input type="checkbox" class="checkboxH form-check-input" id="ejercicio" name="Ejercicio"
+                <input type="checkbox" class="checkboxH form-check-input" id="Ejercicio" name="Hobbie"
                     class="form-control">
                 <label for="Ejercicio" class="form-check-label">Ejercicio</label><br>
-                <input type="checkbox" class="checkboxH form-check-input" id="ciclismo" name="Ciclismo"
+                <input type="checkbox" class="checkboxH form-check-input" id="Ciclismo" name="Hobbie"
                     class="form-control">
                 <label for="Ciclismo" class="form-check-label">Ciclismo</label><br>
-                <input type="checkbox" class="checkboxH form-check-input" id="futbol" name="Futbol"
+                <input type="checkbox" class="checkboxH form-check-input" id="Futbol" name="Hobbie"
                     class="form-control">
                 <label for="Futbol" class="form-check-label">Futbol</label><br>
-                <input type="checkbox" class="checkboxH form-check-input" id="tejo" name="Tejo" class="form-control">
+                <input type="checkbox" class="checkboxH form-check-input" id="Tejo" name="Hobbie" class="form-control">
                 <label for="Tejo" class="form-check-label">Tejo</label><br>
             </div>
 
@@ -107,7 +108,7 @@
     </form>
     <div id="imprimirSect" class="container" style="display:none;"></div>
     </div>
-
+<!--
     <script>
         let imprimirFormulario = function (event) {
             event.preventDefault();
@@ -185,6 +186,7 @@
             return valor;
         }
     </script>
+    -->
 </body>
 
 </html>
